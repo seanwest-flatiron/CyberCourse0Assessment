@@ -1,9 +1,9 @@
 # Prework/Course 0 Final Assessment
 
 ## Core Abilities Assessed:
-- navigate the file system of an OS
-- operate and configure virtual machines
-- inspect network properties of a machine
+- Navigate the file system of an OS
+- Operate and configure virtual machines
+- Inspect network properties of a machine
 
 
 ## Windows 11
@@ -13,7 +13,7 @@
 - Download a zip file into VM full of scripts they can double click to complete challenges and earn flags
 
 ### FLAGS
-1. Extract an archive onto Desktop
+1. Extract a zip archive onto Desktop
 2. Set up a Windows 11 VM from a .iso
 3. Locate a file using file explorer (C:\Users\<account>\FIS\flag.txt)
 4. Retrieve ip address
