@@ -1,9 +1,9 @@
 # Prework/Course 0 Final Assessment
 
 ## Core Abilities Assessed:
-- Navigate the file system of an OS
-- Operate and configure virtual machines
-- Inspect network properties of a machine
+- Navigate a File System
+- Inspect a Network
+- Create and Configure Virtual Machines
 
 
 ## Windows
@@ -27,12 +27,12 @@
 
 ### Performatives Assessed
 1. Create VM from OVA
-2. Navigate to specific folder in terminal
+2. Navigate directory from command line
 3. Retrieve ip address
-4. Place VM in NAT Network mode
-5. Ping one VM from the other
-6. View the contents of a file
-7. Edit the contents of a file
+4. Configure NAT Network mode
+5. Ping VM from another VM
+6. View contents of a file
+7. Edit contents of a file
 8. View hidden file
 
 
