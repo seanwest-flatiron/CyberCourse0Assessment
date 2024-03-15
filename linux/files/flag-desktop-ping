@@ -1,0 +1,24 @@
+#!/bin/bash
+
+echo "Waiting to receive a ping from 'The Ubuntu Server machine'..."
+echo ""
+echo "Press Ctrl-C at any time to stop the program."
+
+trap 'echo "Program stopped. Flag not retrieved"; exit' SIGINT
+
+# Retrieve the main IP address of enp0s3
+MAIN_IP=$(ip -4 addr show enp0s3 | grep -oP 'inet \K[\d.]+')
+
+if [ -z "$MAIN_IP" ]; then
+  echo "Failed to retrieve IP address for enp0s3. Exiting."
+  exit 1
+fi
+
+# Use tcpdump to listen for ICMP echo requests, excluding ones from the machine itself
+sudo tcpdump -i enp0s3 -l "icmp[icmptype] == icmp-echo and src host not 127.0.0.1 and src host not $MAIN_IP" 2>/dev/null  |
+while read -r line; do
+  echo "Received a ping. Good job!!"
+  echo "The flag is PONG"
+  break
+done
+

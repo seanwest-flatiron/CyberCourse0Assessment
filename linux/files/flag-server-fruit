@@ -1,0 +1,17 @@
+#!/bin/bash
+
+FILE_PATH=~student/assessment/notes/fruit.txt
+
+if [ ! -f "$FILE_PATH" ]; then
+  echo "The file '$FILE_PATH' does not exist."
+  echo "Flag not retrieved"
+else
+  if grep -iqw "apple" "$FILE_PATH"; then
+    echo "You have successfully made a fruit.txt file that has the word 'apple' in it"
+    echo "The flag is LUCY"
+  else
+    echo "The word 'apple' was not found in the fruit.txt file"
+    echo "Flag not retrieved"
+  fi
+fi
+

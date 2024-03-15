@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Prompt the user for their IP address
+read -p "Enter this VM's IP address over the network: " user_ip
+
+# Get the actual IP address for enp0s3 (assumes IPv4)
+actual_ip=$(ip addr show enp0s3 | grep -oP 'inet \K[\d.]+')
+
+# Compare the user's input with the actual IP
+if [[ "$user_ip" == "$actual_ip" ]]; then
+  echo "You got it right!"
+  echo "The flag is SUMO"
+else
+  echo "That is not the correct ip address of the network"
+  echo "Flag not retrieved"
+fi
+

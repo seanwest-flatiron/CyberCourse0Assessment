@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# The IP address to ping
+IP="10.0.2.1"
+
+# Ping the IP address quietly, only once
+if ping -c 1 -q "$IP" &>/dev/null; then
+  echo "This VM is properly configured to use NAT Network"
+  echo "The flag is THANKS"
+else
+  echo "This VM does not seem to be configured to use NAT Network"
+  echo "Flag not retrieved"
+fi
+

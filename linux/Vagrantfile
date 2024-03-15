@@ -1,0 +1,64 @@
+Vagrant.configure("2") do |config|
+
+  config.vm.define "udesktop22-assessment" do |udesktop22|
+    udesktop22.vm.box = "udesktop22-student"
+    udesktop22.vm.box_url = "./udesktop22-student.box"
+
+    udesktop22.vm.provider "virtualbox" do |vb|
+      vb.name = "udesktop22-assessment"
+      vb.cpus = 2
+      vb.memory = "2048"
+    end
+
+    # move all flag scripts into /usr/bin
+    udesktop22.vm.provision "shell", inline: <<-SHELL
+      cp /vagrant/files/flag-desktop-* /usr/bin/
+    SHELL
+
+    # set desktop background with initial flag
+    udesktop22.vm.provision "shell", inline: <<-SHELL
+      cp /vagrant/files/desktop-background.png /usr/share/backgrounds/warty-final-ubuntu.png
+    SHELL
+  end
+
+  config.vm.define "userver22-assessment" do |userver22|
+    userver22.vm.box = "userver22-student"
+    userver22.vm.box_url = "./userver22-student.box"
+
+    userver22.vm.provider "virtualbox" do |vb|
+      vb.name = "userver22-assessment"
+      vb.cpus = 2
+      vb.memory = "1024"
+    end
+
+    userver22.vm.provision "shell", inline: <<-SHELL
+      echo "Welcome to the Prework Final Assessment!" > /etc/motd
+      echo "" >> /etc/motd
+      echo "Your initial flag is MEATBALLS" >> /etc/motd
+      echo "" >> /etc/motd
+    SHELL
+
+    userver22.vm.provision "shell", inline: <<-SHELL
+      mkdir -p ~student/assessment/notes
+      echo "The flag is PEACH" > ~student/assessment/notes/flag.txt
+      chown -R student:student ~student/assessment
+    SHELL
+
+    # move all flag scripts into /usr/bin
+    userver22.vm.provision "shell", inline: <<-SHELL
+      cp /vagrant/files/flag-server-* /usr/bin/
+    SHELL
+
+    # create hidden flag file
+    userver22.vm.provision "shell", inline: <<-SHELL
+      mkdir -p ~student/secret
+      touch ~student/secret/.FOREST
+      chown -R student:student ~student/secret
+    SHELL
+  end
+
+  # shared SSH settings
+  config.ssh.username = "student"
+  config.ssh.password = "password"
+  config.ssh.insert_key = false
+end

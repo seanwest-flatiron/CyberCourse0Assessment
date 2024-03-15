@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$(pwd)" = "/home/student/assessment/notes" ]; then
+  echo "Congrats you are in the correct directory!"
+  echo "The flag is NORTH"
+else
+  echo "You are not currently in the correct directory"
+  echo "Please find your way to the directory ~/assessment/notes"
+  echo "Flag not retrieved"
+fi
+

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if grep -q "assessment/notes/fruit.txt" ~student/.viminfo 2>/dev/null; then
+  echo "Good job using vim to edit ~/assessment/notes/fruit.txt!!"
+  echo "The flag is MARS"
+else
+  echo "You do not seem to have edited the file 'assessment/notes/fruit.txt' with vim"
+  echo "Flag not retreived"
+fi
