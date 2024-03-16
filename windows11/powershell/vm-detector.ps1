@@ -19,7 +19,9 @@ if ($computerModel -match $vbPatterns -or $manufacturer -match $vbPatterns -or $
 
 # Output the result
 if ($vmDetected) {
-    Write-Output "This script is running in a VirtualBox VM."
+    Write-Output "Virtual Machine detected. Great!"
+    Write-Output "The flag is STONE"
 } else {
     Write-Output "This script is not running in a VirtualBox VM."
+    Write-Output "Flag not retrieved"
 }
