@@ -1,4 +1,7 @@
-# Prework/Course 0 Final Assessment
+# Prep/Course 0 Final Assessment
+
+- [Canvas Link](https://learning.flatironschool.com/courses/7627/quizzes/56991)
+- [Build instructions](docs/BUILD.md)
 
 ## Core Abilities Assessed:
 - Navigate a File System
